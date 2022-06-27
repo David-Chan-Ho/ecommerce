@@ -1,5 +1,5 @@
 import {DocumentType, getModelForClass, prop, Ref} from '@typegoose/typegoose'
-import {Tag} from './Tag'
+import {Category} from './Category'
 
 export class Product {
     @prop({required: true})
@@ -22,8 +22,8 @@ export class Product {
     @prop({required: true})
     image!: string
 
-    @prop({ref: () => Tag})
-    tags?: Ref<Tag>[]
+    @prop({ref: () => Category})
+    category?: Ref<Category>
 }   
 
 export default getModelForClass(Product)

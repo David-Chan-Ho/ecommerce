@@ -1,5 +1,7 @@
 import express from "express";
 import * as categoryControllers from "../controllers/category.controllers";
+import { body, param } from "express-validator";
+import validateResponse from "../middlewares/validationResults";
 
 const router = express.Router();
 
@@ -18,16 +20,37 @@ const router = express.Router();
  * @return {array<Category>} 200 - success response - application/json
  * @return {object} 400 - Bad request response
  */
-router.get("/", categoryControllers.getAll);
+router.get("", categoryControllers.getAll);
+
+/**
+ * POST /api/categories
+ * @summary Create and Returns a category
+ * @tags category
+ * @param {Category} request.body.required - category body
+ * @return {Category} 200 - success response - application/json
+ * @return {object} 400 - Bad request response
+ */
+router.post(
+    "",
+    body("name").exists().isString().isLength({ min: 3 }),
+    body("banner_image").isString().exists(),
+    validateResponse,
+    categoryControllers.createCategory
+);
 
 /**
  * GET /api/categories/:name
  * @summary Returns a category by name
  * @tags category
- * @param {string} name.query.required - name param
+ * @param {string} name.param.required - name param
  * @return {array<Category>} 200 - success response - application/json
  * @return {object} 400 - Bad request response
  */
-router.get("/:name", categoryControllers.getByName);
+router.get(
+    "/:name",
+    param("name").exists().isString(),
+    validateResponse,
+    categoryControllers.getByName
+);
 
 export default router;

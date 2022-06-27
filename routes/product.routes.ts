@@ -1,5 +1,7 @@
 import express from "express";
+import { body, param } from "express-validator";
 import * as productControllers from "../controllers/product.controllers";
+import validateResponse from "../middlewares/validationResults";
 
 const router = express.Router();
 
@@ -11,7 +13,7 @@ const router = express.Router();
  * @property {string} slug - The slug
  * @property {number} quantity.required - The quantity - double
  * @property {number} price.required - The price - double
- * @property {number} image.required - The image - double
+ * @property {string} image.required - The image - double
  * @property {string} category_name.required - The category
  */
 
@@ -22,16 +24,41 @@ const router = express.Router();
  * @return {array<Product>} 200 - success response - application/json
  * @return {object} 400 - Bad request response
  */
-router.get("/", productControllers.getAll);
+router.get("", productControllers.getAll);
+
+/**
+ * POST /api/products
+ * @summary Create and Returns a product
+ * @tags product
+ * @param {Product} request.body.required - product body
+ * @return {Product} 200 - success response - application/json
+ * @return {object} 400 - Bad request response
+ */
+router.post(
+    "",
+    body("name").exists().isString().isLength({ min: 3 }),
+    body("sku").isString().exists(),
+    body("quantity").isNumeric().exists(),
+    body("price").isNumeric().exists(),
+    body("image").isString().exists(),
+    body("category_name").isString().exists(),
+    validateResponse,
+    productControllers.createProduct
+);
 
 /**
  * GET /api/products/:slug
  * @summary Returns a product by slug
  * @tags product
- * @param {string} slug.query.required - slug param
+ * @param {string} slug.param.required - slug param
  * @return {array<Product>} 200 - success response - application/json
  * @return {object} 400 - Bad request response
  */
-router.get("/:slug", productControllers.getBySlug);
+router.get(
+    "/:slug",
+    param("slug").exists().isString(),
+    validateResponse,
+    productControllers.getBySlug
+);
 
 export default router;

@@ -1,27 +1,27 @@
-import mongoose from 'mongoose'
-import dotenv from 'dotenv'
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
 /**
  * Returns Mongoose connection
- * 
- * @returns Mongoose connection 
+ *
+ * @returns Mongoose connection
  */
 function startDB() {
     // Set MongoDB uri
-    const uri = process.env.MONGO_URI;
+    const uri = process.env.MONGO_URI as string;
 
     // Set up mongoose connection
-    mongoose.connect(uri as string)
+    mongoose.connect(uri);
 
     // Get mongoose default connection
-    const db = mongoose.connection
+    const db = mongoose.connection;
 
     // Bind connection with error event
-    db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+    db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-    return db
+    return db;
 }
 
-export default startDB
+export default startDB;

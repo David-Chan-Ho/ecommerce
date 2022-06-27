@@ -25,6 +25,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-jsdoc-swagger": "^1.6.8",
+    "express-oas-validator": "^3.0.0",
     "express-validator": "^6.14.2",
     "helmet": "^5.1.0",
     "jest": "^28.1.1",

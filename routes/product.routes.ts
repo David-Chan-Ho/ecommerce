@@ -11,9 +11,9 @@ const router = express.Router();
  * @property {string} name.required - The name
  * @property {string} sku.required - The sku
  * @property {string} slug - The slug
- * @property {number} quantity.required - The quantity - double
- * @property {number} price.required - The price - double
- * @property {string} image.required - The image - double
+ * @property {number} quantity.required - The quantity
+ * @property {number} price.required - The price
+ * @property {string} image.required - The image
  * @property {string} category_name.required - The category
  */
 
@@ -38,8 +38,8 @@ router.post(
     "",
     body("name").exists().isString().isLength({ min: 3 }),
     body("sku").isString().exists(),
-    body("quantity").isNumeric().exists(),
-    body("price").isNumeric().exists(),
+    body("quantity").isInt({ min: 0 }).exists(),
+    body("price").isFloat({ min: 0 }).exists(),
     body("image").isString().exists(),
     body("category_name").isString().exists(),
     validateResponse,

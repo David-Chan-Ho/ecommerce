@@ -14,10 +14,10 @@ export class Product {
     })
     slug?: string;
 
-    @prop({ required: true })
+    @prop({ required: true, min: 0 })
     quantity!: number;
 
-    @prop({ required: true })
+    @prop({ required: true, min: 0 })
     price!: number;
 
     @prop({ required: true })

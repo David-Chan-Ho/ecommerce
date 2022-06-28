@@ -1,10 +1,13 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { catalogApi } from "../services/catalog.services";
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer,
+        [catalogApi.reducerPath]: catalogApi.reducer,
     },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(catalogApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
@@ -15,3 +18,5 @@ export type AppThunk<ReturnType = void> = ThunkAction<
     unknown,
     Action<string>
 >;
+
+setupListeners(store.dispatch);

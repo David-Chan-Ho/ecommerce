@@ -1,5 +1,4 @@
 import React from "react";
-import ChatBox from "./features/ChatBox";
 import Routing from "./routing";
 
 function App() {

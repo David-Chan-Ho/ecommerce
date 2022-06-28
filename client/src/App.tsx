@@ -1,12 +1,9 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ChatBox from "./features/ChatBox";
+import Routing from "./routing";
 
 function App() {
-    return (
-        <BrowserRouter>
-            <Routes></Routes>
-        </BrowserRouter>
-    );
+    return <Routing />;
 }
 
 export default App;

@@ -25,7 +25,7 @@ Server
 - Cors                    Allows one domains' resources be shared with other domains
 - Helmet                  Secure HTTP Headers
 - Compression             Compresses requests
-- Dotenv                  Hide enviornmental variables
+- Dotenv                  Hide environment variables
 - Morgan                  Logs server requests and responses
 - Nodemon                 Resets server when a change is made
 
@@ -45,4 +45,4 @@ Database
   - controllers
   - routes
   - services
-   
+  

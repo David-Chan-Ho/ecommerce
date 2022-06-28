@@ -53,4 +53,36 @@ router.get(
     categoryControllers.getByName
 );
 
+/**
+ * DELETE /api/categories/:name
+ * @summary Returns a category by name
+ * @tags category
+ * @param {string} name.param.required - name param
+ * @return {array<Category>} 200 - success response - application/json
+ * @return {object} 400 - Bad request response
+ */
+router.delete(
+    "/:name",
+    param("name").exists().isString(),
+    validateResponse,
+    categoryControllers.deleteCategoryByName
+);
+
+/**
+ * PATCH /api/categories/:name
+ * @summary Returns updated category
+ * @tags category
+ * @param {string} name.param.required - name param
+ * @return {array<Category>} 200 - success response - application/json
+ * @return {object} 400 - Bad request response
+ */
+router.patch(
+    "/:name",
+    param("name").exists().isString(),
+    body("name").exists().isString().isLength({ min: 3 }),
+    body("banner_image").isString().exists(),
+    validateResponse,
+    categoryControllers.updateCategoryByName
+);
+
 export default router;

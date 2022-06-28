@@ -30,7 +30,23 @@ class CategoryServices {
         try {
             return await this.categories.create(category);
         } catch (error) {
-            throw new Error("Category could not be found!");
+            throw new Error("Category could not be created!");
+        }
+    }
+
+    async removeByName(name: string) {
+        try {
+            return await this.categories.findOneAndRemove({ name });
+        } catch (error) {
+            throw new Error("Category could not be removed!");
+        }
+    }
+
+    async updateByName(name: string, category: Category) {
+        try {
+            return await this.categories.findOneAndUpdate({ name }, category);
+        } catch (error) {
+            throw new Error("Category could not be removed!");
         }
     }
 }

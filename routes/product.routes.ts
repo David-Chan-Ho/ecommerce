@@ -61,4 +61,40 @@ router.get(
     productControllers.getBySlug
 );
 
+/**
+ * DELETE /api/products/:name
+ * @summary Removes product by given name
+ * @tags product
+ * @param {string} name.param.required - name param
+ * @return {array<Product>} 200 - success response - application/json
+ * @return {object} 400 - Bad request response
+ */
+router.get(
+    "/:name",
+    param("name").exists().isString(),
+    validateResponse,
+    productControllers.deleteProductByName
+);
+
+/**
+ * POST /api/products
+ * @summary Returns updated post
+ * @tags product
+ * @param {Product} request.body.required - product body
+ * @return {Product} 200 - success response - application/json
+ * @return {object} 400 - Bad request response
+ */
+router.post(
+    "/:name",
+    param("name").exists().isString(),
+    body("name").exists().isString().isLength({ min: 3 }),
+    body("sku").isString().exists(),
+    body("quantity").isInt({ min: 0 }).exists(),
+    body("price").isFloat({ min: 0 }).exists(),
+    body("image").isString().exists(),
+    body("category_name").isString().exists(),
+    validateResponse,
+    productControllers.createProduct
+);
+
 export default router;

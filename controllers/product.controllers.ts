@@ -38,3 +38,21 @@ export async function createProduct(req: Request, res: Response) {
         return res.status(400).json(error);
     }
 }
+
+export async function deleteProductByName(req: Request, res: Response) {
+    try {
+        const response = await products.removeByName(req.params.name);
+        return res.status(200).json(response);
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+}
+
+export async function updateProductByName(req: Request, res: Response) {
+    try {
+        const response = await products.updateByName(req.params.name, req.body);
+        return res.status(200).json(response);
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+}

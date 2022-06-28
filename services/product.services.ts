@@ -1,4 +1,4 @@
-import { ReturnModelType, DocumentType } from "@typegoose/typegoose";
+import { ReturnModelType } from "@typegoose/typegoose";
 import { BeAnObject } from "@typegoose/typegoose/lib/types";
 import models from "../models";
 import { Product } from "../models/Product";
@@ -30,7 +30,23 @@ class ProductServices {
         try {
             return await this.products.create(product);
         } catch (error) {
-            throw new Error("Product could not be found!");
+            throw new Error("Product could not be created!");
+        }
+    }
+
+    async removeByName(name: string) {
+        try {
+            return await this.products.findOneAndRemove({ name });
+        } catch (error) {
+            throw new Error("Product could not be removed!");
+        }
+    }
+
+    async updateByName(name: string, product: Product) {
+        try {
+            return await this.products.findOneAndUpdate({ name }, product);
+        } catch (error) {
+            throw new Error("Product could not be removed!");
         }
     }
 }

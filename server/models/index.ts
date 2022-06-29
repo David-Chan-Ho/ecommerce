@@ -1,11 +1,11 @@
-import Customer from "./Customer";
+import User from "./User";
 import Order from "./Order";
 import Product from "./Product";
 import Category from "./Category";
 
 export default {
-    Customer,
+    User,
     Order,
     Product,
-    Category
-}
+    Category,
+};

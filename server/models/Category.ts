@@ -9,7 +9,7 @@ export class Category {
 
     @prop({
         default: function (this: DocumentType<Category>) {
-            this.slug = this.name;
+            this.slug = this.name.replace(" ", "").toLowerCase();
         },
     })
     slug?: string;

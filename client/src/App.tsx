@@ -9,7 +9,6 @@ function App() {
             <Routes>
                 <Route path="/" element={<CatalogPage />} />
                 <Route path="/products/:slug" element={<ProductPage />} />
-                <Route path="/categories/:name" element={<ProductPage />} />
             </Routes>
         </BrowserRouter>
     );

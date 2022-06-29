@@ -1,7 +1,7 @@
 import {getModelForClass, prop, Ref} from '@typegoose/typegoose'
 import {Order} from './Order'
 
-class Customer {
+class User {
     @prop({required: true})
     name!: string
 
@@ -15,4 +15,4 @@ class Customer {
     order_history?: Ref<Order>[]
 }   
 
-export default getModelForClass(Customer)
+export default getModelForClass(User)

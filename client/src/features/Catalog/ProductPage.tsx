@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetProductBySlugQuery } from "./catalog.services";
 
 function ProductPage() {
@@ -15,6 +15,12 @@ function ProductPage() {
 
     return (
         <>
+            <div>
+                /{" "}
+                <Link to={`${data?.category_name}`}>{data?.category_name}</Link>{" "}
+                / <Link to={`${data?.name}`}>{data?.name}</Link>
+            </div>
+            
             {data?.name}
             {data?.price}
         </>

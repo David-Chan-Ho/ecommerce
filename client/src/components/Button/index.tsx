@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { darken, lighten } from "polished";
 
 interface ButtonProps {
     primary?: boolean;
@@ -29,10 +28,9 @@ export const Button = styled.button<ButtonProps>`
         primary ? "" : "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset"};
 
     &:hover {
-        color: ${({ primary }) =>
-            primary ? lighten(1, "white") : lighten(1, "#333")};
+        color: ${({ primary }) => (primary ? "white" : "#333")};
         background-color: ${({ primary, theme: { colors } }) =>
-            primary ? darken(0.1, colors.primary) : darken(0.1, "white")};
+            primary ? colors.primary : "white"};
         box-shadow: ${({ primary }) =>
             primary ? "" : `green 0px 0px 0px 1px inset`};
     }

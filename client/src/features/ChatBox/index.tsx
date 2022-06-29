@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { RiSendPlane2Fill } from "react-icons/ri";
+import { Button } from "../../components/Button";
 import {
     Avatar,
     Box,
-    Button,
+    ChatInput,
     Container,
     Experts,
     Header,
@@ -40,6 +41,7 @@ function Chat() {
     const [show, setShow] = useState(true);
     const [isConnect, setIsConnect] = useState(true);
     const [messages, setMessages] = useState(data);
+    const [message, setMessage] = useState("");
 
     const onShow = () => setShow(!show);
 
@@ -76,7 +78,12 @@ function Chat() {
             </Messages>
 
             <form>
-                <input type="text" />{" "}
+                <ChatInput
+                    type="text"
+                    placeholder="Write a reply..."
+                    onChange={(e) => setMessage(e.target.value)}
+                    value={message}
+                />{" "}
                 <Button>
                     <RiSendPlane2Fill />
                 </Button>

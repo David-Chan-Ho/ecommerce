@@ -4,7 +4,6 @@ import { darken, lighten } from "polished";
 
 interface ButtonProps {
     primary?: boolean;
-    backgroundColor?: string;
     size?: "small" | "medium" | "large";
     onClick?: () => void;
 }

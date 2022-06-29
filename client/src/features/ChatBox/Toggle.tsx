@@ -1,14 +1,14 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsChatDots } from "react-icons/bs";
-import { ToggleButton } from "./Toggle.styles";
+import IconButton from "../../components/IconButton";
 import { ToggleProps } from "./Toggle.types";
 
 function Toggle({ show, onClick }: ToggleProps) {
     return (
-        <ToggleButton onClick={onClick}>
+        <IconButton onClick={onClick}>
             {show ? <AiOutlineClose /> : <BsChatDots />}
-        </ToggleButton>
+        </IconButton>
     );
 }
 

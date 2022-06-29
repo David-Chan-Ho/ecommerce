@@ -7,7 +7,7 @@ function FilterMenu() {
     return (
         <div>
             {error ? (
-                <>Oh no, there was an error</>
+                <>Categories could not be loaded</>
             ) : isLoading ? (
                 <>Loading...</>
             ) : data ? (

@@ -9,10 +9,21 @@ export default createGlobalStyle`
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  p { 
-    font-size: ${fonts.body}px;
+  h1 {
+    font-size: ${fonts.h1};
   }
-  
+  h2 {
+    font-size: ${fonts.h2};
+  }
+  h3 {
+    font-size: ${fonts.h3};
+  }
+  h4 {
+    font-size: ${fonts.h4};
+  }
+  p { 
+    font-size: ${fonts.body};
+  }
 }
 
 code {

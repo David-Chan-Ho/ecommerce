@@ -9,8 +9,6 @@ interface ButtonProps {
 }
 
 export const Button = styled.button<ButtonProps>`
-    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 700;
     border: 0;
     border-radius: 0.3em;
     cursor: pointer;
@@ -25,15 +23,16 @@ export const Button = styled.button<ButtonProps>`
     font-size: ${({ size }) =>
         size === "small" ? "12px" : size === "medium" ? "14px" : "16px"};
     color: ${({ primary }) => (primary ? "white" : "#333")};
-    background-color: ${({ primary }) => (primary ? "#1ea7fd" : "white")};
+    background-color: ${({ primary, theme: { colors } }) =>
+        primary ? colors.primary : "white"};
     box-shadow: ${({ primary }) =>
         primary ? "" : "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset"};
 
     &:hover {
         color: ${({ primary }) =>
             primary ? lighten(1, "white") : lighten(1, "#333")};
-        background-color: ${({ primary }) =>
-            primary ? darken(0.1, "#1ea7fd") : darken(0.1, "white")};
+        background-color: ${({ primary, theme: { colors } }) =>
+            primary ? darken(0.1, colors.primary) : darken(0.1, "white")};
         box-shadow: ${({ primary }) =>
             primary ? "" : `green 0px 0px 0px 1px inset`};
     }

@@ -6,4 +6,6 @@ export const colors = {
     danger: "#CC132A",
     success: "#82C43B",
     gray: "#ccc",
+    white: "#fff",
+    black: "#000",
 };

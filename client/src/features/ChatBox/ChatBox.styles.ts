@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Input from "../../components/Input";
 import { BoxProps } from "./ChatBox.types";
-import { selectColors, selectBorder } from "../../helpers/selectTheme";
 import { Button } from "../../components/Button";
 
 export const Container = styled.div``;
@@ -16,8 +15,8 @@ export const Header = styled.header`
 export const Box = styled.div<BoxProps>`
     height: 240px;
     width: 280px;
-    border: 1px solid ${selectColors("gray")};
-    border-radius: ${selectBorder("rounded")};
+    border: 1px solid ${({ theme: { color } }) => color.gray};
+    border-radius: ${({ theme: { border } }) => border.rounded};
     bottom: 10px;
     display: ${({ show }) => !show && "none"};
 `;
@@ -41,11 +40,13 @@ export const Messages = styled.section`
 `;
 
 export const Message = styled.article`
-    border: 1px solid ${selectColors("gray")};
+    border: 1px solid ${({ theme: { color } }) => color.gray};
     padding: 3px 6px;
-    border-radius: ${selectBorder("rounded")};
+    border-radius: ${({ theme: { border } }) => border.rounded};
     background-color: ${({ role }) =>
-        role === "Admin" ? "rgb(78, 78, 235)" : selectColors("gray")};
+        role === "Admin"
+            ? "rgb(78, 78, 235)"
+            : ({ theme: { color } }) => color.gray};
     text-align: ${({ role }) => role === "Admin" && "end"};
     display: ${({ role }) => role === "Admin" && "flex"};
     flex-direction: ${({ role }) => role === "Admin" && "row-reverse"};

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { selectColors, selectBorder } from "../../helpers/selectTheme";
 
 interface SkeletonProps {
     circle: boolean;
@@ -9,7 +8,7 @@ interface SkeletonProps {
 }
 
 const Skeleton = styled.div<SkeletonProps>`
-    background-color: ${selectColors("gray")};
+    background-color: ${({ theme: { color } }) => color.gray};
     width: ${({ height, circle }) => (circle ? `${height}px` : "100%")};
     height: ${({ height, box, circle }) =>
         height
@@ -19,8 +18,8 @@ const Skeleton = styled.div<SkeletonProps>`
             : circle
             ? `${height}px`
             : "16px"};
-    border-radius: ${({ circle, box }) =>
-        circle ? "50%" : box ? selectBorder("rounded") : "0.2rem"};
+    border-radius: ${({ circle, box, theme: { border } }) =>
+        circle ? "50%" : box ? border.rounded : "0.2rem"};
 
     background: linear-gradient(
             to right,

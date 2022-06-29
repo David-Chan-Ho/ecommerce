@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { selectColors } from "../../helpers/selectTheme";
 
 const IconButton = styled.button`
     margin-top: 15px;
-    background-color: ${selectColors("primary")};
+    background-color: ${(({theme: {color}}) => color.primary)};
     color: white;
     border: 0;
     width: 30px;

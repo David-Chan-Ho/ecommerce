@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { fonts } from "../theme/fonts";
 
 export default createGlobalStyle`
   body {
@@ -8,6 +9,10 @@ export default createGlobalStyle`
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  p { 
+    font-size: ${fonts.body}px;
+  }
+  
 }
 
 code {

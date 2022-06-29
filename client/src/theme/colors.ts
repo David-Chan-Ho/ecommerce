@@ -1,13 +1,9 @@
-export const colors = {
-    primary: "",
-    secondary: "",
-    danger: "",
-    success: "",
-};
+export type Color = keyof typeof colors;
 
-export const darkColors = {
-    primary: "",
+export const colors = {
+    primary: "#3E83D4",
     secondary: "",
-    danger: "",
-    success: "",
+    danger: "#CC132A",
+    success: "#82C43B",
+    gray: "#ccc",
 };

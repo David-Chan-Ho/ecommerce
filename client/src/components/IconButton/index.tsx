@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const IconButton = styled.button`
     margin-top: 15px;
-    background-color: ${(({theme: {color}}) => color.primary)};
+    background-color: ${(({theme: {colors}}) => colors.primary)};
     color: white;
     border: 0;
     width: 30px;

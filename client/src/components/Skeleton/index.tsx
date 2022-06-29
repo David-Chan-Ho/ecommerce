@@ -8,7 +8,7 @@ interface SkeletonProps {
 }
 
 const Skeleton = styled.div<SkeletonProps>`
-    background-color: ${({ theme: { color } }) => color.gray};
+    background-color: ${({ theme: { colors } }) => colors.gray};
     width: ${({ height, circle }) => (circle ? `${height}px` : "100%")};
     height: ${({ height, box, circle }) =>
         height
@@ -18,8 +18,8 @@ const Skeleton = styled.div<SkeletonProps>`
             : circle
             ? `${height}px`
             : "16px"};
-    border-radius: ${({ circle, box, theme: { border } }) =>
-        circle ? "50%" : box ? border.rounded : "0.2rem"};
+    border-radius: ${({ circle, box, theme: { borders } }) =>
+        circle ? "50%" : box ? borders.rounded : "0.2rem"};
 
     background: linear-gradient(
             to right,

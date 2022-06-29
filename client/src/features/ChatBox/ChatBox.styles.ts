@@ -15,8 +15,8 @@ export const Header = styled.header`
 export const Box = styled.div<BoxProps>`
     height: 240px;
     width: 280px;
-    border: 1px solid ${({ theme: { color } }) => color.gray};
-    border-radius: ${({ theme: { border } }) => border.rounded};
+    border: 1px solid ${({ theme: { colors } }) => colors.gray};
+    border-radius: ${({ theme: { borders } }) => borders.rounded};
     bottom: 10px;
     display: ${({ show }) => !show && "none"};
 `;
@@ -40,13 +40,13 @@ export const Messages = styled.section`
 `;
 
 export const Message = styled.article`
-    border: 1px solid ${({ theme: { color } }) => color.gray};
+    border: 1px solid ${({ theme: { colors } }) => colors.gray};
     padding: 3px 6px;
-    border-radius: ${({ theme: { border } }) => border.rounded};
+    border-radius: ${({ theme: { borders } }) => borders.rounded};
     background-color: ${({ role }) =>
         role === "Admin"
             ? "rgb(78, 78, 235)"
-            : ({ theme: { color } }) => color.gray};
+            : ({ theme: { colors } }) => colors.gray};
     text-align: ${({ role }) => role === "Admin" && "end"};
     display: ${({ role }) => role === "Admin" && "flex"};
     flex-direction: ${({ role }) => role === "Admin" && "row-reverse"};

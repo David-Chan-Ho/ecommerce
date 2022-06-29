@@ -1,5 +1,3 @@
-export type Color = keyof typeof colors;
-
 export const colors = {
     primary: "#3E83D4",
     secondary: "",

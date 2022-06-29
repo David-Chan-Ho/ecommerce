@@ -96,7 +96,7 @@ function Chat() {
             <Box show={show}>
                 {isConnect ? renderMessages : renderConnectMenu}
             </Box>
-
+                
             <Toggle show={show} onClick={onShow} />
         </Container>
     );

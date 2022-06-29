@@ -1,5 +1,6 @@
 import React from "react";
-import { useGetProductsQuery } from "../../services/catalog.services";
+import { useGetProductsQuery } from "./catalog.services";
+import { Link } from "react-router-dom";
 
 function Products() {
     const { data, error, isLoading } = useGetProductsQuery();
@@ -13,7 +14,9 @@ function Products() {
             ) : data ? (
                 <>
                     {data.map((p) => (
-                        <li>{p.name}</li>
+                        <Link key={p.name} to={`/products/${p.slug}`}>
+                            {p.name}
+                        </Link>
                     ))}
                 </>
             ) : null}

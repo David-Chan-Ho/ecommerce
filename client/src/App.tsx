@@ -1,8 +1,18 @@
 import React from "react";
-import Routing from "./routing";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CatalogPage from "./features/Catalog/CatalogPage";
+import ProductPage from "./features/Catalog/ProductPage";
 
 function App() {
-    return <Routing />;
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<CatalogPage />} />
+                <Route path="/products/:slug" element={<ProductPage />} />
+                <Route path="/categories/:name" element={<ProductPage />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;

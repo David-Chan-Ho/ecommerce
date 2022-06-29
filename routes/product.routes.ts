@@ -51,7 +51,7 @@ router.post(
  * @summary Returns a product by slug
  * @tags product
  * @param {string} slug.param.required - slug param
- * @return {array<Product>} 200 - success response - application/json
+ * @return {Product} 200 - success response - application/json
  * @return {object} 400 - Bad request response
  */
 router.get(
@@ -66,7 +66,7 @@ router.get(
  * @summary Removes product by given name
  * @tags product
  * @param {string} name.param.required - name param
- * @return {array<Product>} 200 - success response - application/json
+ * @return {Product} 200 - success response - application/json
  * @return {object} 400 - Bad request response
  */
 router.get(

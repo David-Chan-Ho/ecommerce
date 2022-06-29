@@ -43,7 +43,7 @@ router.post(
  * @summary Returns a category by name
  * @tags category
  * @param {string} name.param.required - name param
- * @return {array<Category>} 200 - success response - application/json
+ * @return {Category} 200 - success response - application/json
  * @return {object} 400 - Bad request response
  */
 router.get(
@@ -58,7 +58,7 @@ router.get(
  * @summary Returns a category by name
  * @tags category
  * @param {string} name.param.required - name param
- * @return {array<Category>} 200 - success response - application/json
+ * @return {Category} 200 - success response - application/json
  * @return {object} 400 - Bad request response
  */
 router.delete(

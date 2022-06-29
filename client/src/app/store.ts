@@ -1,6 +1,6 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { catalogApi } from "../services/catalog.services";
+import { catalogApi } from "../features/Catalog/catalog.services";
 
 export const store = configureStore({
     reducer: {
